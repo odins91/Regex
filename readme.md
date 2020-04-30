@@ -2,4 +2,7 @@
 This is my portfoliooo
 
 My second project contain:
-phone.py
++ phone.py
+* other
+# Fin
+> scc
