@@ -1,11 +1,17 @@
 import re
 
 def parse_bytes(input):
-    data = re.compile(r'\d[0-1]*')
-    return data.findall(input)
+    # Approach with many inputs in the line:
+    # data = re.compile(r'\b\d[0-1]{7}\b')
+    # return data.findall(input)
+
+    # Second approach:
+    binary_regex = re.compile(r'\b[01]{8}\b')
+    results = binary_regex.findall(input)
+    return results
 
 
-    # Approach with one input:
+    # Approach with one input in the line:
 
     # merged = data.search(input)
     # if merged:
