@@ -6,17 +6,17 @@ def parse_bytes(input):
     # return data.findall(input)
 
     # Second approach:
-    binary_regex = re.compile(r'\b[01]{8}\b')
-    results = binary_regex.findall(input)
-    return results
+    # binary_regex = re.compile(r'\b[01]{8}\b')
+    # results = binary_regex.findall(input)
+    # return results
 
 
     # Approach with one input in the line:
-
-    # merged = data.search(input)
-    # if merged:
-    #     return merged.group()
-    # return None
+    binary_regex = re.compile(r'\b[01]{8}\b')
+    merged = binary_regex.search(input)
+    if merged:
+        return merged.group()
+    return None
 
 
 print(parse_bytes("01010101"))
