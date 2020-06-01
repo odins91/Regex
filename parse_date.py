@@ -13,9 +13,16 @@ def parse_date(input):
     # y = matches.group('year')
     # print("d: " + d + " m: " + m + " y: " + y)
 
-    print(matches.groups())
+    if matches:
+        return {
+            "d": matches.group("day"),
+            "m": matches.group("month"),
+            "y": matches.group("year")
+        }
+    return None
 
-parse_date("01.22.1991")
-parse_date("01,22,1991")
-parse_date("01/22/1991")
-# parse_date("01,22,199134")
+
+print(parse_date("01.22.1991"))
+print(parse_date("01,22,1991"))
+print(parse_date("01/22/1991"))
+print(parse_date("01,22,199134"))
