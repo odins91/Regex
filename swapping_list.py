@@ -11,9 +11,31 @@ titles = [
     "Michael Tolliver Lives (2007)"
 ]
 
+
 titles.sort()
+fixed_titles = []
 # print(titles)
 
-pattern = re.compile(r'(^[\w ]+) (\(\d{4}\))')
-result = pattern.sub("\g<2> - \g<1>", titles[0])
-print(result)
+# to get one result:
+
+# one_pattern = re.compile(r'^([\w ]+) \((\d{4})\)')
+# first_result = one_pattern.sub("\g<2> - \g<1>", titles[1])
+# print(first_result)
+
+# first approach:
+
+# pattern = re.compile(r'(^[\w ]+) (\(\d{4}\))')
+# for book in titles:
+#     result = pattern.sub("\g<2> - \g<1>", book)
+#     fixed_titles.append(result)
+# fixed_titles.sort()
+# print(fixed_titles)
+
+# second approach:
+
+sec_pattern = re.compile(r'^(?P<title>[\w ]+) \((?P<date>\d{4})\)')
+for book in titles:
+    sec_result = sec_pattern.sub("Book date = \g<date> - \g<title>", book)
+    fixed_titles.append(sec_result)
+fixed_titles.sort()
+print(fixed_titles)
